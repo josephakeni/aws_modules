@@ -35,3 +35,19 @@ resource "aws_subnet" "private_subnet" {
     Environment = var.environment
   }
 }
+
+############################################
+#           DATABASE SUBNET                 #
+############################################
+
+resource "aws_subnet" "db_subnet" {
+  vpc_id = aws_vpc.main.id
+  count             = length(var.db_subnets)
+  cidr_block        = element(var.db_subnets, count.index)
+  availability_zone = element(var.availability_zones, count.index)
+
+  tags = {
+    Name        = "${var.name}-db-subnet-${var.environment}-${format("%03d", count.index + 1)}"
+    Environment = var.environment
+  }
+}

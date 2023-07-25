@@ -38,6 +38,14 @@ resource "aws_route_table" "private_route_table" {
   }
 }
 
+resource "aws_route_table" "db_route_table" {
+  vpc_id = aws_vpc.main.id
+
+  tags = {
+    Name = "db_route_table"
+  }
+}
+
 ####################################
 #  ROUTE TABLE ASSOCIATION PUBLIC  #
 ####################################
@@ -51,9 +59,14 @@ resource "aws_route_table_association" "main_private" {
   route_table_id = element(aws_route_table.private_route_table.*.id, count.index)
 }
 
+resource "aws_route_table_association" "db_private" {
+  count          = length(var.db_subnets)
+  subnet_id      = element(aws_subnet.db_subnet.*.id, count.index)
+  route_table_id = element(aws_route_table.db_route_table.*.id, count.index)
+}
+
 resource "aws_route_table_association" "main_public" {
   count     = length(var.public_subnets)
   subnet_id = element(aws_subnet.public_subnet.*.id, count.index)
-  #route_table_id = aws_route_table.public.id
   route_table_id = element(aws_route_table.public_route_table.*.id, count.index)
 }
