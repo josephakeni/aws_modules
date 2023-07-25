@@ -6,13 +6,13 @@ data "template_file" "cb_app" {
   template = file("../templates/ecs/cb_app.json.tpl")
 
   vars = {
-    app_image      = var.app_image
-    app_port       = var.app_port
-    cpu_size       = var.cpu_size
-    memory_size    = var.memory_size
-    aws_region     = var.aws_region
-    network_mode   = var.network_mode
-    container_name = var.container_name
+    app_image        = var.app_image
+    app_port         = var.app_port
+    cpu_size         = var.cpu_size
+    memory_size      = var.memory_size
+    aws_region       = var.aws_region
+    network_mode     = var.network_mode
+    container_name   = var.container_name
     ecs_cluster_name = var.ecs_cluster_name
   }
 }

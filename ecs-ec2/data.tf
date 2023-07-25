@@ -23,7 +23,7 @@ data "template_file" "user_data" {
   template = file("../templates/ecs/user_data.sh.tpl")
   vars = {
     ecs_cluster_name = var.ecs_cluster_name
-    app_image      = var.app_image
+    app_image        = var.app_image
   }
 }
 
@@ -31,8 +31,8 @@ data "template_file" "ec2_cb_app" {
   template = file("../templates/ecs/ec2_cb_app.json.tpl")
 
   vars = {
-    app_image      = var.app_image
-    app_port = var.app_port
+    app_image = var.app_image
+    app_port  = var.app_port
     #   cpu_size    = var.cpu_size
     #   memory_size = var.memory_size
     #   aws_region     = var.aws_region

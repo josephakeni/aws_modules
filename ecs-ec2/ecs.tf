@@ -12,10 +12,10 @@ resource "aws_ecs_cluster" "main" {
 
 resource "aws_ecs_task_definition" "app" {
   family                   = "${var.ecs_cluster_name}-app-task"
-  network_mode             = var.network_mode  #"bridge"
-  requires_compatibilities = [var.launch_type] #["EC2"]
+  network_mode             = var.network_mode          #"bridge"
+  requires_compatibilities = [var.launch_type]         #["EC2"]
   container_definitions    = var.container_definitions #data.template_file.ec2_cb_app.rendered
-  task_role_arn            = var.execution_role_arn 
+  task_role_arn            = var.execution_role_arn
 }
 
 resource "aws_ecs_service" "main" {
