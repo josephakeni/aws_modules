@@ -14,6 +14,10 @@ output "private_subnets" {
   value = aws_subnet.private_subnet.*.id
 }
 
+output "db_subnets" {
+  value = aws_subnet.db_subnet.*.id
+}
+
 output "internet_gateway_id" {
   value = aws_internet_gateway.main_igw.id
 }
