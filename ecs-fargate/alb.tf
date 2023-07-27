@@ -6,7 +6,7 @@ resource "aws_alb" "main" {
 
 resource "aws_alb_target_group" "app" {
   name        = "${var.ecs_cluster_name}-target-group"
-  port        = 3000 #80
+  port        = var.app_port #80
   protocol    = "HTTP"
   vpc_id      = var.aws_vpc_main
   target_type = var.target_type #"ip"
