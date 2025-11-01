@@ -1,5 +1,4 @@
 
-
-# output "target_node_id" {
-#   value = proxmox_vm_qemu.server.*.vmid
-# }
+output "vm_ipv4_address" {
+  value = proxmox_virtual_environment_vm.ubuntu_clone.ipv4_addresses[1][0]
+}

@@ -61,9 +61,6 @@ resource "proxmox_virtual_environment_vm" "ubuntu_clone" {
   }
 
   # force_create=true
+  on_boot = var.on_boot
 
-}
-
-output "vm_ipv4_address" {
-  value = proxmox_virtual_environment_vm.ubuntu_clone.ipv4_addresses[1][0]
 }
