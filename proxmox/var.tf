@@ -30,3 +30,5 @@ variable "ip_gateway" {
 }
 variable "on_boot" {}
 variable "clone_vm_id" {}
+variable "memory" {}
+variable "cores" {}

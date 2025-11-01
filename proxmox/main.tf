@@ -41,7 +41,12 @@ resource "proxmox_virtual_environment_vm" "ubuntu_clone" {
   }
 
   memory {
-    dedicated = 768
+    dedicated = var.memory #768
+  }
+
+  cpu {
+    cores        = var.cores #2
+    type         = "x86-64-v2-AES"  # recommended for modern CPUs
   }
 
   initialization {
