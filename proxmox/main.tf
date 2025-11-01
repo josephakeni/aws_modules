@@ -8,8 +8,8 @@ terraform {
 }
 
 provider "proxmox" {
-  endpoint  = var.proxmox_api_url #"https://192.168.0.3:8006/api2/json"
-  api_token = var.proxmox_api_token #"terraform@pam!terraform=78cf6eac-e31d-4b83-ae1a-69bdf2956484"
+  endpoint  = var.proxmox_api_url
+  api_token = var.proxmox_api_token 
   insecure = true
   ssh {
     agent       = true
@@ -21,7 +21,7 @@ provider "proxmox" {
 
 resource "proxmox_virtual_environment_vm" "ubuntu_clone" {
   vm_id       = var.vm_id #400
-  name        = "k8s-ubuntu-clone"
+  name        = var.vm_name
   node_name   = var.proxmox_node #"pve" #var.virtual_environment_node_name
   description = "Managed by Terraform"
   tags        = ["terraform", "ubuntu"]
@@ -67,37 +67,3 @@ resource "proxmox_virtual_environment_vm" "ubuntu_clone" {
 output "vm_ipv4_address" {
   value = proxmox_virtual_environment_vm.ubuntu_clone.ipv4_addresses[1][0]
 }
-
-# resource "proxmox_vm_qemu" "server" {
-#   count       = var.instance_count
-#   name        = "tunde-${count.index + 1}"
-#   target_node = var.target_node
-#   vmid        = var.prefix_vmid + count.index + 1
-#   clone       = var.template_name
-#   full_clone = true
-
-
-# agent       = 1
-# os_type     = "cloud-init"
-
-# cpu {cores       = 2}
-# # sockets     = 1
-# # cpu_type         = "host"
-# memory      =  4096
-# scsihw      = "virtio-scsi-pci"
-# bootdisk    = "scsi0"
-# onboot      = var.onboot_start
-
-# ciuser      = var.ciuser
-# cipassword  = var.cipassword
-
-
-# ipconfig0 = "ip=192.168.0.61/24,gw=192.168.0.1"
-
-# sshkeys = <<EOF
-# ${var.ssh_key}
-# EOF
-
-
-
-# }

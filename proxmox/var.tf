@@ -9,8 +9,8 @@ variable "template_name" {
 
 variable "proxmox_api_url" {}
 
-variable "proxmox_api_token" {
-}
+variable "proxmox_api_token" {}
+variable "vm_name" {}
 
 
 variable "pm_tls_insecure" {
