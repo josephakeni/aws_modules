@@ -64,7 +64,4 @@ variable "onboot_start" {
   default     = "false"
   description = "Start at boot"
 }
-variable "clone_vm_id" {
-  type        = number
-  default     = 9001
-}
+variable "clone_vm_id" {}

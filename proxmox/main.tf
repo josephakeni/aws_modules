@@ -55,7 +55,7 @@ resource "proxmox_virtual_environment_vm" "ubuntu_clone" {
       }
     }
     user_account {
-      keys = [file("./files/id_rsa.pub"), ]
+      keys = [file("/files/id_rsa.pub"), ]
     }
 
   }
