@@ -1,22 +1,22 @@
-terraform {
-  required_providers {
-    proxmox = {
-      source  = "bpg/proxmox"
-      version = "0.85.1"
-    }
-  }
-}
+# terraform {
+#   required_providers {
+#     proxmox = {
+#       source  = "bpg/proxmox"
+#       version = "0.85.1"
+#     }
+#   }
+# }
 
-provider "proxmox" {
-  endpoint  = var.proxmox_api_url
-  api_token = var.proxmox_api_token 
-  insecure = true
-  ssh {
-    agent       = true
-    private_key = file("~/.ssh/id_rsa")
-  }
+# provider "proxmox" {
+#   endpoint  = var.proxmox_api_url
+#   api_token = var.proxmox_api_token 
+#   insecure = true
+#   ssh {
+#     agent       = true
+#     private_key = file("~/.ssh/id_rsa")
+#   }
 
-}
+# }
 
 
 resource "proxmox_virtual_environment_vm" "ubuntu_clone" {
