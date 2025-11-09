@@ -47,6 +47,8 @@ resource "proxmox_virtual_environment_vm" "ubuntu_clone" {
   cpu {
     cores        = var.cores #2
     type         = "x86-64-v2-AES"  # recommended for modern CPUs
+    flags  = null  # ✅ avoid empty list bug
+    sockets = 1
   }
 
   initialization {
