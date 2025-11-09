@@ -2,7 +2,7 @@ terraform {
   required_providers {
     proxmox = {
       source  = "bpg/proxmox"
-      version = "0.85.1"
+      version = "0.84.0"
     }
   }
 }
@@ -30,15 +30,6 @@ resource "proxmox_virtual_environment_vm" "ubuntu_clone" {
     vm_id = var.clone_vm_id #9001 #proxmox_virtual_environment_vm.ubuntu_template.id
     full  = true
   }
-
-  started            = null
-  reboot             = null
-  reboot_after_update = null
-  protection         = null
-  bios               = null
-  scsi_hardware      = null
-  acpi               = null
-  keyboard_layout    = null
 
   agent {
     # NOTE: The agent is installed and enabled as part of the cloud-init configuration in the template VM, see cloud-config.tf
