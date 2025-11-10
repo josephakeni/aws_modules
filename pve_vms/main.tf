@@ -31,15 +31,6 @@ resource "proxmox_virtual_environment_vm" "ubuntu_clone" {
     full  = true
   }
 
-  started            = null
-  reboot             = null
-  reboot_after_update = null
-  protection         = null
-  bios               = null
-  scsi_hardware      = null
-  acpi               = null
-  keyboard_layout    = null
-
   agent {
     # NOTE: The agent is installed and enabled as part of the cloud-init configuration in the template VM, see cloud-config.tf
     # The working agent is *required* to retrieve the VM IP addresses.
