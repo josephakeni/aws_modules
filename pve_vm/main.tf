@@ -4,9 +4,10 @@ locals {
 }
 
 
-resource "proxmox_virtual_environment_vm" "ubuntu_template" {
+resource "proxmox_virtual_environment_vm" "ubuntu_clone" {
   name      = var.name
   node_name   = var.proxmox_node
+  vm_id       = var.vm_id
 
   clone {
     vm_id = var.template_vm_id #9005 #local.template_vm_id
