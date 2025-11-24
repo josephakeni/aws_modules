@@ -84,5 +84,5 @@ variable "template_vm_id" {
   default = 9005
 }
 variable "vm_id" {
-  default = ""
+  default = 204
 }
