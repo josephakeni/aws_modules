@@ -1,3 +1,3 @@
 output "vm_ids" {
-  value = proxmox_virtual_environment_vm.ubuntu_template[*].vm_id
+  value = proxmox_virtual_environment_vm.ubuntu_clone.*.vm_id
 }
