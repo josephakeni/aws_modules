@@ -65,6 +65,15 @@ resource "proxmox_virtual_environment_vm" "ubuntu_clone" {
   # tags        = ["terraform", "ubuntu"]
   tags = local.vm_tags
 
+  connection {
+    type = "ssh"
+    user = var.vm_ci_user
+    # private_key = file("${pathexpand("~/.ssh/id_rsa")}") #file("~/.ssh/id_rsa") #file(var.ssh_private_key_path)
+    private_key = file(pathexpand("${var.private_key}"))
+    host        = var.vm_ip
+    timeout     = "2m"
+  }
+
 }
 
 resource "random_id" "randomname" {

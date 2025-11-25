@@ -86,3 +86,6 @@ variable "template_vm_id" {
 variable "vm_id" {
   default = 204
 }
+variable "private_key" {
+  default = ""
+}
