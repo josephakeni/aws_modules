@@ -77,6 +77,14 @@ resource "proxmox_virtual_environment_vm" "ubuntu_clone" {
     source      = "${path.module}/scripts/install-jenkins.sh"
     destination = "/tmp/install-jenkins.sh"
   }
+  provisioner "remote-exec" {
+    inline = [
+      "chmod +x /tmp/install-jenkins.sh",
+      "sudo /tmp/install-jenkins.sh"
+    ]
+
+
+  }
 
 }
 
