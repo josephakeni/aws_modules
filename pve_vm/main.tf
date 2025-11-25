@@ -74,13 +74,13 @@ resource "proxmox_virtual_environment_vm" "ubuntu_clone" {
     timeout     = "2m"
   }
   provisioner "file" {
-    source      = var.install_jenkins
-    destination = "/tmp/install-jenkins.sh"
+    source      = var.install_apps
+    destination = "/tmp/install-apps.sh"
   }
   provisioner "remote-exec" {
     inline = [
-      "chmod +x /tmp/install-jenkins.sh",
-      "sudo /tmp/install-jenkins.sh"
+      "chmod +x /tmp/install-apps.sh",
+      "sudo /tmp/install-apps.sh"
     ]
 
 
