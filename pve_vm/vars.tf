@@ -89,3 +89,6 @@ variable "vm_id" {
 variable "private_key" {
   default = ""
 }
+variable "install_jenkins" {
+  default = ""
+}

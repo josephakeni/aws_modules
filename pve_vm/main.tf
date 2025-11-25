@@ -74,7 +74,7 @@ resource "proxmox_virtual_environment_vm" "ubuntu_clone" {
     timeout     = "2m"
   }
   provisioner "file" {
-    source      = "${path.module}/scripts/install-jenkins.sh"
+    source      = var.install_jenkins
     destination = "/tmp/install-jenkins.sh"
   }
   provisioner "remote-exec" {
