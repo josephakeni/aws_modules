@@ -73,6 +73,10 @@ resource "proxmox_virtual_environment_vm" "ubuntu_clone" {
     host        = var.vm_ip
     timeout     = "2m"
   }
+  provisioner "file" {
+    source      = "${path.module}/scripts/install-jenkins.sh"
+    destination = "/tmp/install-jenkins.sh"
+  }
 
 }
 
