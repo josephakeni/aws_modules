@@ -92,3 +92,7 @@ variable "private_key" {
 variable "install_apps" {
   default = ""
 }
+variable "vm_tags" {
+  type        = list(string)
+  description = "Tags to assign to the VM"
+}

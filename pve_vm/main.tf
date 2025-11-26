@@ -1,8 +1,3 @@
-locals {
-  # vm_tags = join(";", ["docker", "terraform"])
-  vm_tags = ["docker", "terraform"]
-}
-
 
 resource "proxmox_virtual_environment_vm" "ubuntu_clone" {
   name      = var.name
@@ -62,8 +57,7 @@ resource "proxmox_virtual_environment_vm" "ubuntu_clone" {
     ]
   }
   on_boot = true
-  # tags        = ["terraform", "ubuntu"]
-  tags = local.vm_tags
+  tags = var.vm_tags
 
   connection {
     type = "ssh"
