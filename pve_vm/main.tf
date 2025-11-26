@@ -73,6 +73,7 @@ resource "proxmox_virtual_environment_vm" "ubuntu_clone" {
   }
   provisioner "remote-exec" {
     inline = [
+      "sed -i 's/\r$//' /tmp/install-apps.sh || true", #Always strip Windows \r inside remote-exec
       "chmod +x /tmp/install-apps.sh",
       "sudo /tmp/install-apps.sh"
     ]
